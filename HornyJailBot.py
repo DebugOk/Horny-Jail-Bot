@@ -1,3 +1,4 @@
+print("[Hornyjail Bot] Importing dependencies and logging into Reddit.")
 from re import sub
 from threading import active_count
 import praw
