@@ -6,7 +6,6 @@ import filecmp
 import os
 
 from requests.api import delete
-URL = 'https://gitcdn.xyz/repo/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
 URL = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
 
 print("[Autopull] Downloading latest version")
@@ -14,7 +13,7 @@ file = requests.get(URL)
 open('./bot.py', 'wb').write(file.content)
 p = subprocess.Popen(['python3', 'bot.py', 'arg1', 'arg2'])
 while True:
-    time.sleep(60)
+    time.sleep(120)
     print("[Autopull] Checking for new commits")
     file = requests.get(URL)
     open('./temp.py', 'wb').write(file.content)
