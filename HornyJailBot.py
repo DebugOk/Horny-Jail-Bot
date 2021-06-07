@@ -12,7 +12,8 @@ if os.name == 'nt':
 else:
     os.system('clear')
 reddit = praw.Reddit('bot1')
-
+WebhookURL = open("webhook.txt","r").read()
+print(f"[Hornyjail Bot] Loaded webhook {WebhookURL}")
 printAll = False
 postsToCheck = 50
 delay = 900
@@ -69,7 +70,7 @@ while True:
             timeStr = datetime.utcfromtimestamp(int(submission.created_utc)).strftime('%Y-%m-%d %H:%M:%S')
             embed.add_embed_field(name='Post info', value=f'Title: {submission.title}\nAuthor: {submission.author.name}\nScore: {submission.score}\nURL: {submission.url}\nCreated at: {timeStr}')
             embed.add_embed_field(name='Action(s) taken', value=Actions)
-            webhook = DiscordWebhook(url='https://discord.com/api/webhooks/850750748953149470/X_Fl-PwMD9vnGgsZTYVtqPS84_pfl1m9ntxRiDYXPJCvPxyyN4X0D5AwdtfT5PDVF4Fk')
+            webhook = DiscordWebhook(url='WebhookURL')
             webhook.add_embed(embed)
             response = webhook.execute()
     print("----Results----")
