@@ -22,8 +22,8 @@ while True:
     Checking 50 posts from r/{subreddit.display_name}...
     Grabbing newest submissions...
     Downloading and checking submissions...""")
-    NSFWPosts = []
     PostCount = 0
+    NSFWPosts = []
     ToCheck = []
     Actions = ""
     #for submission in tqdm(subreddit.new(limit=postsToCheck),total=postsToCheck): This only works if you are not using a host that has a shitty console
