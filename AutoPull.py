@@ -7,6 +7,7 @@ import os
 
 from requests.api import delete
 URL = 'https://gitcdn.xyz/repo/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
+URL = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
 
 print("[Autopull] Downloading latest version")
 file = requests.get(URL)

@@ -16,7 +16,7 @@ printAll = False
 postsToCheck = 50
 delay = 900
 subreddit = reddit.subreddit("smg4")
-
+print("[Hornyjail Bot] Authenticated to Reddit and waiting for commands.")
 while True:
     print(f"""----------------------------------------
     Checking 50 posts from r/{subreddit.display_name}...
