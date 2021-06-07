@@ -41,4 +41,4 @@ while True:
             if downloadPrint:
                 print("[Autopull] Updating self and fully restarting...")
             open('./Main.py', 'wb').write(file.content)
-            os.execv(sys.argv[0], sys.argv)
+            sys.exit()
