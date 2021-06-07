@@ -15,6 +15,8 @@ URL = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
 URLSelf = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/Main.py'
 
 print("[Autopull] Downloading latest version")
+if shouldSelfUpdate:
+    print("[Autopull] Also checking for self updates")
 file = requests.get(URL)
 open('./bot.py', 'wb').write(file.content)
 p = subprocess.Popen(['python3', 'bot.py'])
