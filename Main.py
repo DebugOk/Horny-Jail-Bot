@@ -4,17 +4,20 @@ import subprocess
 import time
 import filecmp
 import os
+import sys
 
 checkingPrint = False
 downloadPrint = True
+shouldSelfUpdate = True
 
 from requests.api import delete
 URL = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/HornyJailBot.py'
+URLSelf = 'https://raw.githack.com/DebugOk/Horny-Jail-Bot/main/Main.py'
 
 print("[Autopull] Downloading latest version")
 file = requests.get(URL)
 open('./bot.py', 'wb').write(file.content)
-p = subprocess.Popen(['python3', 'bot.py', 'arg1', 'arg2'])
+p = subprocess.Popen(['python3', 'bot.py'])
 while True:
     time.sleep(120)
     if checkingPrint:
@@ -25,7 +28,15 @@ while True:
         if downloadPrint:
             print("[Autopull] Updating file and restarting...")
         open('./bot.py', 'wb').write(file.content)
-        p = subprocess.Popen(['python3', 'bot.py', 'arg1', 'arg2'])
+        p = subprocess.Popen(['python3', 'bot.py'])
     else:
         if checkingPrint:
             print("[Autopull] No changes found!")
+    if shouldSelfUpdate:
+        file = requests.get(URLSelf)
+        open('./tempself.py', 'wb').write(file.content)
+        if not filecmp.cmp("./tempself.py","./Main.py"):
+            if downloadPrint:
+                print("[Autopull] Updating self and fully restarting...")
+            open('./Main.py', 'wb').write(file.content)
+            os.execv(sys.argv[0], sys.argv)
