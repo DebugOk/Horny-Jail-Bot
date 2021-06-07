@@ -12,10 +12,13 @@ else:
     os.system('clear')
 reddit = praw.Reddit('bot1')
 
+version = 1
 printAll = False
 postsToCheck = 50
 delay = 900
 subreddit = reddit.subreddit("smg4")
+
+print(f"Version {version}")
 
 while True:
     print(f"""----------------------------------------
