@@ -33,7 +33,7 @@ while True:
         p = subprocess.Popen(['python3', 'bot.py'])
     else:
         if checkingPrint:
-            print("[Autopull] No changes found!")
+            print("[Autopull] No changes found")
     if shouldSelfUpdate:
         file = requests.get(URLSelf)
         open('./tempself.py', 'wb').write(file.content)
